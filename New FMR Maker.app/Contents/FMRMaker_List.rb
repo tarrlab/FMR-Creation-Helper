@@ -44,7 +44,7 @@ subjects.each do |subject|
     if run_folder =~ /EPI/
       subject[:names] << run_folder.match(/EPI_(.*)/)[1]
       subject[:fmr_source_files] << all_children_except(run_folder).first
-      subject[:volumes] << all_children_except(run_folder).size
+      subject[:volumes] << all_children_except(run_folder).grep(/\.dcm/).size
       subject[:run_folders] << run_folder
     end
   end
