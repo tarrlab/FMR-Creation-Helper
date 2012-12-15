@@ -1,0 +1,7 @@
+# New FMR Maker - for BrainVoyager QX
+
+README not yet created, code still not commented
+
+## Contributors
+
+[Deb Johnson](https://github.com/debjohnson)
