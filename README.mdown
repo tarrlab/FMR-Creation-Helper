@@ -87,8 +87,8 @@ The external script for BrainVoyager is written in [Coffeescript](http://coffees
       
 Coffeescript must be installed for re-compiling to JavaScript after making any changes. Installation instructions:
 
--- Install [Node.js](http://nodejs.org)
--- Open terminal and issue the following command:
+1. Install [Node.js](http://nodejs.org)
+2. Open terminal and issue the following command:
 
       sudo npm install -g  http://github.com/jashkenas/coffee-script/tarball/master
 
