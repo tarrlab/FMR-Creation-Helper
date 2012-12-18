@@ -23,11 +23,11 @@ The application assumes that the dropped folder will be one of the following:
 
 1. A single subject folder containing many functional run folders with raw EPI images as shown below:
 
-![screenshot2](https://raw.github.com/tarrlab/FMR-Maker/master/FMR%20Maker.app/README_Images/screenshot2.png)
+![screenshot2](https://raw.github.com/tarrlab/FMR-Creation-Helper/master/README_Images/screenshot2.png)
 
 2. A folder containing many subject folders, each of which contain the functional run folders as shown below:
 
-![screenshot3](https://raw.github.com/tarrlab/FMR-Maker/master/FMR%20Maker.app/README_Images/screenshot3.png)
+![screenshot3](https://raw.github.com/tarrlab/FMR-Creation-Helper/master/README_Images/screenshot3.png)
 
 After dropping the folder on the icon, three text input prompts will appear asking the user to input the following information:
 
@@ -46,16 +46,16 @@ The application will create a _BV folder inside each subject's main directory. A
       64
       /Users/aUser/Desktop/Subject1/Subject1-Run5-Order11/01-0001-000001.dcm
       159
-      MotionEncode-Run5-Order11
-      /Users/Deb/Desktop/ME8/_BV-ME8
-      ME8_MotionEncode-Run5-Order11.fmr
-      /Users/aUser/Desktop/Subject1/Subject1-Run1-Order5/02-000001.dcm
+      Subject1-Run5-Order11
+      /Users/aUser/Desktop/Subject1/_BV-Subject1
+      Subject1-Run5-Order11.fmr
+      /Users/aUser/Desktop/Subject2/Subject2-Run1-Order5/02-000001.dcm
       159
-      MotionEncode-Run1-Order5
-      /Users/Deb/Desktop/ME8/_BV-ME8
-      ME8_MotionEncode-Run1-Order5.fmr
+      Subject1-Run1-Order5
+      /Users/aUser/Desktop/Subject2/_BV-Subject2
+      Subject2-Run1-Order5.fmr
 
-The file will be saved to the location chosen during the promps (when inputting text file name). Once the text file is generated, the path to the file will be copied to the clipboard automatically. BrainVoyager QX will open, and the Edit and Run Scripts pane will appear. Double-click the FMR Creation Helper.js script in the Scripts sidebar, and paste the path in the location indicated in the script comments:
+The file will be saved to the location chosen during the prompts (when inputting text file name). Once the text file is generated, the path to the file will be copied to the clipboard automatically. BrainVoyager QX will open, and the Edit and Run Scripts pane will appear. Double-click the FMR Creation Helper.js script in the Scripts sidebar, and paste the path in the location indicated in the script comments:
 
 $![Paste Path]()
 
@@ -63,7 +63,7 @@ $![Paste Path]()
 
 There are two internal scripts within this application itself, and one external script that must be run from the BrainVoyager application. To edit them, right-click on the FMR List Generator application, then select Show Package Contents from the popup menu:
 
-![screenshot](https://raw.github.com/tarrlab/FMR-Maker-3mm/master/README_Images/screenshot1.png)
+![screenshot](https://raw.github.com/tarrlab/FMR-Creation-Helper/master/README_Images/screenshot1.png)
 
 ### Internal Scripts
 
@@ -71,7 +71,7 @@ The internal application scripts are an AppleScript script and a Ruby script.
     
 The Ruby script can be found here after showing package contents as instructed above:
 
-    Contents/FMR Creation Helper.rb
+    Contents/FMR_Creation_Helper.rb
 
 The AppleScript can be found here:
 
@@ -92,9 +92,9 @@ Coffeescript must be installed for re-compiling to JavaScript after making any c
 
       sudo npm install -g http://github.com/jashkenas/coffee-script/tarball/master
 
-After making changes to FMR_Maker_3mm.coffee, run the following command from terminal to compile to a JavaScript file with the same name (if not including full file path, run from within directory where script is located):
+After making changes to FMR_Creation_Helper.coffee, run the following command from terminal to compile to a JavaScript file with the same name (if not including full file path, run from within directory where script is located):
 
-      coffee -c -b FMR_Maker_3mm.coffee
+      coffee -c -b FMR_Creation_Helper.coffee
 
 The flags stand for --compile and --bare. --bare is necessary in order to compile without the top-level function wrapper, which BrainVoyager can't process.
 
