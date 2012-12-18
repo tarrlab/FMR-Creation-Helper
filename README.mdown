@@ -57,7 +57,7 @@ The application will create a _BV folder inside each subject's main directory. A
 
 The file will be saved to the location chosen during the prompts (when inputting text file name). Once the text file is generated, the path to the file will be copied to the clipboard automatically. BrainVoyager QX will open, and the Edit and Run Scripts pane will appear. Double-click the FMR Creation Helper.js script in the Scripts sidebar, and paste the path in the location indicated in the script comments:
 
-$![Paste Path]()
+$![screenshot4](https://raw.github.com/tarrlab/FMR-Creation-Helper/master/README_Images/screenshot4.png)
 
 ## Modifying Application Scripts
 
@@ -83,14 +83,14 @@ Alternatively, to edit the AppleScript open AppleScript Editor (located in Appli
 
 The external script for BrainVoyager is written in [Coffeescript](http://coffeescript.org) and can be found here:
 
-    Contents/BV Scripts/FMR_Creation_Helper.coffee
-
+      Contents/BV Scripts/FMR_Creation_Helper.coffee
+      
 Coffeescript must be installed for re-compiling to JavaScript after making any changes. Installation instructions:
 
-* Install [Node.js](http://nodejs.org)
-* Open terminal and issue the following command:
+-- Install [Node.js](http://nodejs.org)
+-- Open terminal and issue the following command:
 
-      sudo npm install -g http://github.com/jashkenas/coffee-script/tarball/master
+      sudo npm install -g  http://github.com/jashkenas/coffee-script/tarball/master
 
 After making changes to FMR_Creation_Helper.coffee, run the following command from terminal to compile to a JavaScript file with the same name (if not including full file path, run from within directory where script is located):
 
