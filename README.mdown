@@ -6,12 +6,13 @@ This application helps automate the process of FMR file creation in BrainVoyager
 
 ## Installation
 
-* Clone repository and move FMR Creation Helper app to /Applications folder.
-* Double-click the Installer to copy the FMR Creation Helper.js JavaScript file to ~/Documents/BVQXExtensions/Scripts.
+1. Clone repository and move FMR Creation Helper app to /Applications folder.
+2. Double-click the Installer to copy the FMR Creation Helper.js JavaScript file to ~/Documents/BVQXExtensions/Scripts.
 
-The application uses Graphic User Interface (GUI) Scripting via AppleScript which requires Accessibility Frameworks to be enabled. By default, they are disabled. When the installer runs, it will check to make sure they're enabled and if they aren't, the Universal Access pane in System Preferences will open, and a dialog box will pop up notifying you that you need to check "Enable access for assistive devices."
+NOTES:
 
-NOTE: FMR Creation Maker.js was originally written in Coffeescript. Coffeescript installation required for making changes to original .coffee file, see "Modifying Application Scripts" below for details.
+* The application uses Graphic User Interface (GUI) Scripting via AppleScript which requires Accessibility Frameworks to be enabled. By default, they are disabled. When the installer runs, it will check to make sure they're enabled and if they aren't, the Universal Access pane in System Preferences will open, and a dialog box will pop up notifying you that you need to check "Enable access for assistive devices."
+* FMR Creation Maker.js was originally written in Coffeescript. Coffeescript installation required for making changes to original .coffee file, see "Modifying Application Scripts" below for details.
 
 ## Use
 
