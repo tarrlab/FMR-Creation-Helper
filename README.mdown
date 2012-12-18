@@ -1,6 +1,102 @@
-# New FMR Maker - for BrainVoyager QX
+# FMR Creation Helper - for 3mm In-Plane Resolution Data in BrainVoyager QX
 
-README not yet created, code still not commented
+## Purpose
+
+This application helps automate the process of FMR file creation in BrainVoyager for data sets with 3mm in-plane resolution. While it's possible to completely automate FMR creation using [FMR Maker](https://github.com/tarrlab/FMR-Maker), which issues FMR creation commands using AppleScript, due to a bug in BrainVoyager FMR creation through AppleScript is not possible with 3mm in-plane resolution data sets. More specifically, when sending an FMR creation command from an AppleScript for 3mm-resolution data, BrainVoyager incorrectly sets the in-plane resolution parameters during FMR creation when executing the command. Due to this contraint, it is necessary to run a JavaScript file from within BrainVoyager. This application outputs a text file with paths and other information necessary to create FMRs, and includes a script for running within BrainVoyager that reads the text file and creates FMRs for the data set automatically.
+
+## Installation
+
+* Clone repository and move FMR Creation Helper app to /Applications folder.
+* Double-click the Installer to copy the FMR Creation Helper.js JavaScript file to ~/Documents/BVQXExtensions/Scripts.
+
+The application uses Graphic User Interface (GUI) Scripting via AppleScript which requires Accessibility Frameworks to be enabled. By default, they are disabled. When the installer runs, it will check to make sure they're enabled and if they aren't, the Universal Access pane in System Preferences will open, and a dialog box will pop up notifying you that you need to check "Enable access for assistive devices."
+
+NOTE: FMR Creation Maker.js was originally written in Coffeescript. Coffeescript installation required for making changes to original .coffee file, see "Modifying Application Scripts" below for details.
+
+## Use
+
+The application can generate a single text files with the information to create FMR files for one or more subjects. 
+
+To use this application, drop a single folder onto the application icon.
+
+The application assumes that the dropped folder will be one of the following:
+
+1. A single subject folder containing many functional run folders with raw EPI images as shown below:
+
+![screenshot2](https://raw.github.com/tarrlab/FMR-Maker/master/FMR%20Maker.app/README_Images/screenshot2.png)
+
+2. A folder containing many subject folders, each of which contain the functional run folders as shown below:
+
+![screenshot3](https://raw.github.com/tarrlab/FMR-Maker/master/FMR%20Maker.app/README_Images/screenshot3.png)
+
+After dropping the folder on the icon, three text input prompts will appear asking the user to input the following information:
+
+* Desired name for text file output
+* Number of slices for each functional run
+* Number of slice rows and columns (one number)
+* X/Y in-plane resolution for dataset
+
+NOTE: Numbers must be the same for all data to be processed
+
+The application will create a _BV folder inside each subject's main directory. A text file will be automatically generated with the total number of FMR files that need to be created (necessary for BrainVoyager to read the text file), the three user input numbers from above, and for each FMR to be created, the path to the first source file, the number of volumes, and the name of the run. The text file output resembles the following:
+
+      2
+      31
+      576
+      64
+      /Users/aUser/Desktop/Subject1/Subject1-Run5-Order11/01-0001-000001.dcm
+      159
+      MotionEncode-Run5-Order11
+      /Users/Deb/Desktop/ME8/_BV-ME8
+      ME8_MotionEncode-Run5-Order11.fmr
+      /Users/aUser/Desktop/Subject1/Subject1-Run1-Order5/02-000001.dcm
+      159
+      MotionEncode-Run1-Order5
+      /Users/Deb/Desktop/ME8/_BV-ME8
+      ME8_MotionEncode-Run1-Order5.fmr
+
+The file will be saved to the location chosen during the promps (when inputting text file name). Once the text file is generated, the path to the file will be copied to the clipboard automatically. BrainVoyager QX will open, and the Edit and Run Scripts pane will appear. Double-click the FMR Creation Helper.js script in the Scripts sidebar, and paste the path in the location indicated in the script comments:
+
+$![Paste Path]()
+
+## Modifying Application Scripts
+
+There are two internal scripts within this application itself, and one external script that must be run from the BrainVoyager application. To edit them, right-click on the FMR List Generator application, then select Show Package Contents from the popup menu:
+
+![screenshot](https://raw.github.com/tarrlab/FMR-Maker-3mm/master/README_Images/screenshot1.png)
+
+### Internal Scripts
+
+The internal application scripts are an AppleScript script and a Ruby script.
+    
+The Ruby script can be found here after showing package contents as instructed above:
+
+    Contents/FMR Creation Helper.rb
+
+The AppleScript can be found here:
+
+    Contents/Resources/Scripts/main.scpt
+    
+Alternatively, to edit the AppleScript open AppleScript Editor (located in Applications/Utilities/), and drag the application onto the AppleScript Editor dock icon, or select File...Open, and choose the application.
+
+### External Script
+
+The external script for BrainVoyager is written in [Coffeescript](http://coffeescript.org) and can be found here:
+
+    Contents/BV Scripts/FMR_Creation_Helper.coffee
+
+Coffeescript must be installed for re-compiling to JavaScript after making any changes. Installation instructions:
+
+* Install [Node.js](http://nodejs.org)
+* Open terminal and issue the following command:
+
+      sudo npm install -g http://github.com/jashkenas/coffee-script/tarball/master
+
+After making changes to FMR_Maker_3mm.coffee, run the following command from terminal to compile to a JavaScript file with the same name (if not including full file path, run from within directory where script is located):
+
+      coffee -c -b FMR_Maker_3mm.coffee
+
+The flags stand for --compile and --bare. --bare is necessary in order to compile without the top-level function wrapper, which BrainVoyager can't process.
 
 ## Contributors
 
