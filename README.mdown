@@ -34,8 +34,8 @@ After dropping the folder on the icon, three text input prompts will appear aski
 
 * Desired name for text file output
 * Number of slices for each functional run
-* Number of slice rows and columns (one number)
-* X/Y in-plane resolution for dataset
+* Mosaic image resolution (i.e. number of slice rows and columns - one number)
+* Image width/height (i.e. X/Y in-plane resolution for dataset - one number)
 
 NOTE: Numbers must be the same for all data to be processed
 
