@@ -16,7 +16,7 @@ NOTES:
 
 ## Use
 
-The application can generate a single text files with the information to create FMR files for one or more subjects. 
+The application can generate a single text file with information necessary to create FMR files for one or more subjects. 
 
 To use this application, drop a single folder onto the application icon.
 
