@@ -58,7 +58,7 @@ The application will create a _BV folder inside each subject's main directory. A
 
 The file will be saved to the location chosen during the prompts (when inputting text file name). Once the text file is generated, the path to the file will be copied to the clipboard automatically. BrainVoyager QX will open, and the Edit and Run Scripts pane will appear. Double-click the FMR Creation Helper.js script in the Scripts sidebar, and paste the path in the location indicated in the script comments:
 
-$![screenshot4](https://raw.github.com/tarrlab/FMR-Creation-Helper/master/README_Images/screenshot4.png)
+![screenshot4](https://raw.github.com/tarrlab/FMR-Creation-Helper/master/README_Images/screenshot4.png)
 
 ## Modifying Application Scripts
 
